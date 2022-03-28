@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <div class="wrapper">
+    <header><i class='bx bx-left-arrow-alt'></i>
+      <div class="header-detail">
+      <div class="name column">Weather App</div>
+      <div class="column">
+        <select class="metricts-select">
+          <option value="Metric">
+            Metric (°C, km/h, mm)
+          </option>
+
+          <option value="Imperial">
+            Imperial (°F, mph, in)
+          </option>
+
+        </select>
+      </div>
+
+    </header>
+
+    <section class="input-part">
+      <p class="info-txt"></p>
+      <div class="content">
+        <div class="tooltip">
+          <input type="text" spellcheck="false" placeholder="Enter city name and press enter" required>
+          <span class="tooltiptext">Press enter</span>
+        </div>
+        <div class="separator"></div>
+        <button>Get Location</button>
+      </div>
+    </section>
+
+    <section class="weather-part">
+      <img src="" alt="Weather Icon">
+      <div class="temp">
+        <span class="numb metric">_</span>
+        <span class="numb imperial">_</span>
+        <span class="deg">°</span>
+      </div>
+      <div class="weather">_ _</div>
+      <div class="location">
+        <i class='bx bx-map'></i>
+        <span>_, _</span>
+      </div>
+      <div class="bottom-details">
+        <div class="column feels">
+          <i class='bx bxs-thermometer'></i>
+          <div class="details">
+            <div class="temp">
+              <span class="numb-2 metric">_</span>
+              <span class="numb-2 imperial">_</span>
+              <span class="deg">°</span>
+            </div>
+            <p>Feels like</p>
+          </div>
+        </div>
+        <div class="column humidity">
+          <i class='bx bxs-droplet-half'></i>
+          <div class="details">
+            <span>_</span>
+            <p>Humidity</p>
+          </div>
+        </div>
+
+        <div class="column wind">
+          <i class='bx bxl-tailwind-css' ></i>
+          <div class="details">
+            <span class="numb metric">_</span>    
+            <span class="numb imperial">_</span>  
+            <p>Wind</p>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="bottom-details">
+        <div id="ForecastDiv" class="column">
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="app.js"></script>
+
+</body>
+
+</html>

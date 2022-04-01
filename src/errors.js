@@ -11,6 +11,10 @@ const errorService = {
     infoTxt.innerText = msj;
     infoTxt.classList.replace("pending", "error");
   },
+  removeMsj() {
+     infoTxt.classList.remove("pending", "error");
+     infoTxt.innerText = "";
+  },
   errorAlert(msj) {
     alert(msj);
   },

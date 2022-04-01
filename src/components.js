@@ -1,8 +1,10 @@
 import errorService from "./errors.js";
+import helper from "./helper.js"
 const wrapper = document.querySelector(".wrapper"),
-  weatherPart = wrapper.querySelector(".weather-part"),
-  wIcon = weatherPart.querySelector("img"),
-  forecastDiv = wrapper.querySelector("#ForecastDiv");
+      weatherPart = wrapper.querySelector(".weather-part"),
+      wIcon = weatherPart.querySelector("img"),
+      inputField = document.getElementById("input-city"),
+      forecastDiv = wrapper.querySelector("#ForecastDiv");
 
 const components = {
   weatherDetails(res) {
@@ -44,8 +46,8 @@ const components = {
       ).innerText = `${windM} Mph `;
 
       inputField.value = `${city}, ${country}`;
-      //infoTxt.classList.remove("pending", "error");
-      //infoTxt.innerText = "";
+ 
+      errorService.removeMsj();  
       wrapper.classList.add("active");
     }
   },
@@ -74,7 +76,8 @@ const components = {
         forecastDiv.innerHTML += elementTmp;
       });
     }
-    changeMetricSettings(settingUnitWeather);
+    helper.changeMetricSettings();
+    errorService.removeMsj();
   },
 };
 

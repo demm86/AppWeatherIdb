@@ -17,7 +17,7 @@ const  datafetch = {
                 this.fetchDataForecast();
             },
             requestForeCastLatLonApi (lat, lon) {
-                this.apiUrl = `${this.baseUrl}/Current?location=${lat},${lon}`;
+                this.apiUrl = `${this.baseUrl}/CurrentForecast?location=${lat},${lon}`;
                 this.fetchDataForecast();
             },
             fetchDataWeather(){

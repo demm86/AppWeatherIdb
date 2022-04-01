@@ -1,12 +1,13 @@
 import datafetch from "./api.js";
 import helper from "./helper.js";
+import errorService from "./errors.js";
+
+const inputField = document.getElementById("input-city"),
+      metrictsCmb = document.getElementById("metricts-select"),
+      locationBtn = document.getElementById("button-get-data");      
 
 
-const inputField = document.querySelector(".input-part"),
-      metrictsCmb = document.querySelector(".metricts-select"),
-      locationBtn = document.querySelector("button");      
-
-metrictsCmb.value = helper.locationSettings;
+metrictsCmb.value = helper.getLocationStorage();
 
 
 
@@ -22,6 +23,7 @@ metrictsCmb.addEventListener('change', function () {
 }, false);
 
 locationBtn.addEventListener("click", () => {
+    errorService.pendingMsj("Getting weather details...");
     helper.getGeoLocation();
 });
 

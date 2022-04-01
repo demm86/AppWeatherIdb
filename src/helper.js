@@ -8,17 +8,20 @@ const metricElements = document.getElementsByClassName('metric'),
 
 const helper = {
    
+    locationSettings : "",
     setLocationStorage(value){
       localStorage.setItem("settingUnitWeather", value);
+      this.locationSettings = value;
       this.changeMetricSettings();
     },
     getLocationStorage(){
-      return localStorage.getItem("settingUnitWeather")
-        ? localStorage.getItem("settingUnitWeather")
-        : "Metric";
+      this.locationSettings = !localStorage.getItem("settingUnitWeather")
+      ? localStorage.getItem("settingUnitWeather")
+      : "Metric";
+      return this.locationSettings;
     },
     changeMetricSettings(){
-      let tmp = !this.locationSettings() ? "Metric" : this.getLocationStorage();
+      let tmp = (!this.locationSettings ? "Metric" : this.locationSettings);
 
       for (var i = 0; i < metricElements.length; i++) {
         metricElements[i].style.display = tmp == "Metric" ? "block" : "none";
@@ -34,8 +37,8 @@ const helper = {
     },
     getGeoLocation(){
       geoloc.getGeoLoc();
-    },
-    locationSettings : ""
+    }
+    
 }
 
 export default helper

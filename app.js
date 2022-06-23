@@ -13,7 +13,7 @@ const wrapper = document.querySelector(".wrapper"),
 
 let api;
 let settingUnitWeather = localStorage.getItem('settingUnitWeather') ? localStorage.getItem('settingUnitWeather') : "Metric";
-const baseUrl = 'https://localhost:44385/api/v1.0';
+const baseUrl = 'http://apiweather-env-1.us-east-2.elasticbeanstalk.com/api/v1.0';
 
 
 metrictsCmb.value = settingUnitWeather;
@@ -40,6 +40,21 @@ locationBtn.addEventListener("click", () => {
         alert("Your browser not support geolocation api");
     }
 });
+
+
+
+
+var tryAPIGeolocation = function() {
+    
+    jQuery.post( "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDCa1LUe1vOczX1hO_iGYgyo8p_jYuGOPU", function(success1) {
+        apiGeolocationSuccess({coords: {latitude: success.location.lat, longitude: success.location.lng}});
+  })
+  .fail(function(err) {
+    alert("API Geolocation error! \n\n"+err);
+  });
+};
+
+
 
 
 let requestWeatherApi = (city) => {
